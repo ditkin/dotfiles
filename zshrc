@@ -43,7 +43,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git rvm common-aliases battery thefuck)
+plugins=(git rvm common-aliases battery thefuck bundler rake ruby tmux mvn selenium vagrant)
 
 export PATH="/bin:/usr/bin:/usr/local/bin:/Users/ditkin/bin:/usr/sbin:/Users/ditkin/.rvm/gems/ruby-2.2.1/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
 
