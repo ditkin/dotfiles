@@ -1,5 +1,6 @@
 # Common Aliases
-alias la='ls -lah'
+alias ls='gls --color '
+alias la='gls --color -lah'
 alias cdb='cd ..'
 alias cdbb='cd ../..'
 alias cdbbb='cd ../../..'
@@ -14,7 +15,7 @@ alias grep='grep --color'
 alias h='history'
 alias hg='history | grep'
 alias fg='find ./ | grep'
-
+alias dot='cd ~/dotfiles'
 # Bundler
 alias be="bundle exec"
 alias bl="bundle list"
@@ -125,7 +126,7 @@ alias gcoi='git checkout master'
 # Committing
 alias gaa='git add *'
 alias gau='git add -u'
-alias gcm='git commit -m'
+alias gcmsg='git commit -m'
 alias gca='git commit --amend'
 # Pulling
 alias glo='git pull origin'
