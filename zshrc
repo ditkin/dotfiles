@@ -50,7 +50,14 @@ export PATH="/bin:/usr/bin:/usr/local/bin:/Users/ditkin/bin:/usr/sbin:/Users/dit
 source $ZSH/oh-my-zsh.sh
 antigen use oh-my-zsh
 antigen bundle zsh-users/zsh-syntax-highlighting
-antigen theme gallois
+antigen theme garyblessington
+# CUSTOM ZSH PROMPT
+PROMPT='%{$fg[magenta]%}%~%{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%}% %{$reset_color%}: '
+ZSH_THEME_GIT_PROMPT_PREFIX="(%{$fg[blue]%}"
+#ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[red]%}✗%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
+
 eval "$(thefuck --alias fuck)"
 export LS_COLORS='di=32:fi=31:ex=5:ln=4;31:or=4:pi=5:so=5:bd=5'
 #eval `gdircolors ~/.dir_colors`
