@@ -53,9 +53,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen theme gallois
 eval "$(thefuck --alias fuck)"
 export LS_COLORS='di=32:fi=31:ex=5:ln=4;31:or=4:pi=5:so=5:bd=5'
-eval `gdircolors ~/.dir_colors`
-#zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==02=01}:${(s.:.)LS_COLORS}")'
-#zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
+#eval `gdircolors ~/.dir_colors`
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 [ -s "/Users/ditkin/.scm_breeze/scm_breeze.sh" ] && source "/Users/ditkin/.scm_breeze/scm_breeze.sh"
 source $HOME/dotfiles/aliases.zsh
