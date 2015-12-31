@@ -5,6 +5,7 @@ mkdir -p ~/dotfiles/vim/autoload ~/dotfiles/vim/bundle && \
 curl -LSso ~/dotfiles/vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 git clone https://github.com/zsh-users/antigen.git ~/dotfiles/antigen
 git clone git@github.com:ditkin/scm_breeze.git ~/dotfiles/scm_breeze
+chsh -s $(which zsh)
 sudo easy_install pip
 sudo pip install thefuck
 
