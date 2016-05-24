@@ -16,6 +16,8 @@ alias h='history'
 alias hg='history | grep'
 alias fg='find ./ | grep'
 alias dot='cd ~/dotfiles'
+alias ehost='sudo vim /etc/hosts'
+alias yolo='sudo'
 # Bundler
 alias be="bundle exec"
 alias bl="bundle list"
@@ -24,6 +26,8 @@ alias bo="bundle open"
 alias bu="bundle update"
 alias bi="bundle install"
 alias bcn="bundle clean"
+# java
+alias jv="java -version"
 
 # Rake
 alias rds='rake db:seed'
@@ -39,11 +43,14 @@ alias tksv='tmux kill-server'
 alias tkss='tmux kill-session -t'
 
 # Rvm
+alias rvosa='rvm osx-ssl-certs status all'
+alias rvoua='rvm osx-ssl-certs update all'
 alias rvl='rvm list'
 alias rvu='rvm use'
 alias rgu='rvm gemset use'
 alias rgc='rvm gemset create'
 alias rgl='rvm gemset list'
+alias rvi='rvm install'
 
 # Gem
 alias gi='gem install'
@@ -139,3 +146,21 @@ alias glud='git pull upstream development'
 alias glui='git pull upstream integration'
 alias glur='git pull upstream release'
 alias glum='git pull upstream master'
+# pull/rebasing
+alias glro='git pull --rebase origin'
+alias glrom='git pull --rebase origin master'
+alias glroi='git pull --rebase origin integration'
+alias glror='git pull --rebase origin release'
+alias glrod='git pull --rebase origin development'
+alias glru='git pull --rebase upstream'
+alias glrum='git pull --rebase upstream master'
+alias glrui='git pull --rebase upstream integration'
+alias glrur='git pull --rebase upstream release'
+alias glrud='git pull --rebase upstream development'
+# diffing
+alias gd='git diff'
+alias gdo='git diff --oneline'
+# spui switchers
+alias switch_dev="sudo rm /opt/cc/etc/environment.properties; sudo ln -s /opt/cc/etc/d1.environment.properties /opt/cc/etc/environment.properties"
+alias switch_l1="sudo rm /opt/cc/etc/environment.properties; sudo ln -s /opt/cc/etc/l1.environment.properties /opt/cc/etc/environment.properties"
+alias start_spui="cp ~/Documents/start_spui/.ruby-version ~/git/spui/spui-webapp; cd ~/git/spui/spui-webapp; cp ~/Documents/start_spui/1_ldap_vault.rb ~/git/spui/spui-webapp/config/initializers/1_ldap_vault.rb; cp ~/Documents/start_spui/spui-local-config.yml ~/git/spui/spui-webapp/config/spui-local-config.yml; DEV_ACCOUNT_ID=1100495881808 DEV_USER_UUID=91de826a-882a-45fb-8e66-872f15ffe42b rails s -p 3000"

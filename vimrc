@@ -19,8 +19,11 @@ call vundle#begin()
 " Plugin
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-surround'
+Plugin 'muz/vim-gemfile'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'hashivim/vim-vagrant'
+Plugin 'ervandew/supertab'
 Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'benmills/vimux'
@@ -29,8 +32,11 @@ Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'rodjek/vim-puppet'
 Plugin 'whatyouhide/vim-gotham'
+Plugin 'nanotech/jellybeans.vim'
 Plugin 'vim-scripts/rainbow-end'
 Plugin 'vim-scripts/sh.vim'
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'vim-scripts/python.vim'
 Plugin 'skalnik/vim-vroom'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdcommenter'
@@ -38,6 +44,9 @@ Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-expand-region'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'vim-scripts/vtreeexplorer' 
+Plugin 'xolox/vim-easytags' 
+Plugin 'xolox/vim-misc' 
+Plugin 'elubow/cql-vim' 
 
 call vundle#end()
 
@@ -58,8 +67,8 @@ set viminfo='100,\"100,:20,%,n~/.viminfo
 nmap <S-CR> O<Esc>
 nmap <CR> o<Esc>
 :map <Leader> :w
-:map < :q
-:vmap jj <Esc>
+:vmap mm <Esc>
+:vmap e $
 :nnoremap e $
 :nnoremap <Space> i
 :map - <Nop>
@@ -77,11 +86,14 @@ nmap <CR> o<Esc>
 :nmap <C-e> :VTreeExplore
 :nmap [ :vertical resize 
 :nmap ] :res
+nmap [bash <Space>#!/bin/bashjj<CR> 
+:nmap ]r :g/^$/d
 
 "sets random stuff
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+set expandtab
 set backupdir=~/.vim/backup_files//
 set dir=~/.vim/swap_files//
 set undodir=~/.vim/undo_files//
@@ -100,6 +112,9 @@ set smartindent
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+:set tags=./tags;
+
+au BufEnter,BufRead *.conf setf dosini
 
 "Remove trailing whitespace
 autocmd FileType python,ruby autocmd BufWritePre * :%s/\s\+$//e
@@ -109,6 +124,8 @@ match Todo /\s\+$/
 let g:syntastic_puppet_checkers=['puppet', 'puppetlint']
 let g:syntastic_ruby_checkers=['jruby', 'macruby', 'rubocop', 'rubylint', 'mri']
 let g:syntastic_javascript_checkers=['jshint', 'jsl', 'jslint', 'jsxhint', 'mixedindentlint', 'standard']
+let g:syntastic_java_checkers=['javac', 'checkstyle']
+let g:syntastic_json_checkers=['jsonlint', 'jsonval']
 
 " Lets
 let g:syntastic_always_populate_loc_list = 1
@@ -119,5 +136,14 @@ let g:syntastic_warning_symbol = "⚠"
 let g:airline_theme = 'dark'
 
 :color gotham
+" Color configuration for Supertab readability
+hi Search cterm=NONE ctermfg=red ctermbg=blue
+hi Pmenu cterm=NONE ctermfg=magenta ctermbg=darkblue 
+hi PmenuSel cterm=NONE ctermfg=yellow ctermbg=darkgreen 
+hi PmenuSbar cterm=NONE ctermfg=none ctermbg=grey 
+hi PmenuThumb cterm=NONE ctermfg=darkgreen ctermbg=darkgreen 
 
 autocmd BufNewFile,BufRead *.json set ft=javascript
+" Tags
+set tags=./tags,tags;$HOME
+
