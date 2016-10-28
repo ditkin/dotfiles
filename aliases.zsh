@@ -1,9 +1,11 @@
 # Common Aliases
-alias ls='gls --color '
+alias ls='gls --color'
 alias la='gls --color -lah'
 alias cdb='cd ..'
 alias cdbb='cd ../..'
 alias cdbbb='cd ../../..'
+alias cdbbbb='cd ../../../..'
+alias cdb5='cd ../../../../..'
 alias t='tail -f'
 alias cdp='popd'
 alias zshrc='vim ~/.zshrc' # Quick access to the ~/.zshrc file
@@ -18,8 +20,12 @@ alias fg='find ./ | grep'
 alias dot='cd ~/dotfiles'
 alias ehost='sudo vim /etc/hosts'
 alias yolo='sudo'
+alias na='vim ~/dotfiles/aliases.zsh'
+# maven
+alias mrmw='rm -rf ~/.m2/repository/com/constantcontact/web-content-svc'
 # Bundler
 alias be="bundle exec"
+alias ber="bundle exec rake"
 alias bl="bundle list"
 alias bp="bundle package"
 alias bo="bundle open"
@@ -27,6 +33,10 @@ alias bu="bundle update"
 alias bi="bundle install"
 alias bcn="bundle clean"
 # java
+alias jaba="cd src/main/java"
+alias java7='export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)'
+alias java8='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)'
+
 alias jv="java -version"
 
 # Rake
@@ -54,6 +64,7 @@ alias rvi='rvm install'
 
 # Gem
 alias gi='gem install'
+alias gibi='gem install bundler;bundle install'
 
 # Selenium
 alias wmu='webdriver-manager update'
@@ -160,7 +171,24 @@ alias glrud='git pull --rebase upstream development'
 # diffing
 alias gd='git diff'
 alias gdo='git diff --oneline'
+# cleaning
+alias gcle='git clean -fd'
 # spui switchers
 alias switch_dev="sudo rm /opt/cc/etc/environment.properties; sudo ln -s /opt/cc/etc/d1.environment.properties /opt/cc/etc/environment.properties"
 alias switch_l1="sudo rm /opt/cc/etc/environment.properties; sudo ln -s /opt/cc/etc/l1.environment.properties /opt/cc/etc/environment.properties"
 alias start_spui="cp ~/Documents/start_spui/.ruby-version ~/git/spui/spui-webapp; cd ~/git/spui/spui-webapp; cp ~/Documents/start_spui/1_ldap_vault.rb ~/git/spui/spui-webapp/config/initializers/1_ldap_vault.rb; cp ~/Documents/start_spui/spui-local-config.yml ~/git/spui/spui-webapp/config/spui-local-config.yml; DEV_ACCOUNT_ID=1100495881808 DEV_USER_UUID=91de826a-882a-45fb-8e66-872f15ffe42b rails s -p 3000"
+#npm
+alias ni="npm install"
+alias nrt="npm run test"
+alias nrdb="npm run dev-build"
+alias nrl="npm run lint"
+alias ns='npm start'
+alias nre='npm run eslint'
+alias nru='npm run unit_tests'
+
+#cd
+alias cdl='cd ~/git/contacts-listpicker-ui'
+alias cdc='cd ~/git/contacts-core'
+#core
+alias re='RAILS_ENV=production_local_d1 bundle exec bin/secure_rails s'
+

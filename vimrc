@@ -23,6 +23,7 @@ Plugin 'muz/vim-gemfile'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'hashivim/vim-vagrant'
+Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'ervandew/supertab'
 Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
@@ -40,8 +41,9 @@ Plugin 'vim-scripts/python.vim'
 Plugin 'skalnik/vim-vroom'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-expand-region'
+Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'vim-scripts/vtreeexplorer' 
 Plugin 'xolox/vim-easytags' 
@@ -90,9 +92,9 @@ nmap [bash <Space>#!/bin/bashjj<CR>
 :nmap ]r :g/^$/d
 
 "sets random stuff
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set expandtab
 set backupdir=~/.vim/backup_files//
 set dir=~/.vim/swap_files//
@@ -112,7 +114,7 @@ set smartindent
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-:set tags=./tags;
+:set tags=./tags,tags'$HOME
 
 au BufEnter,BufRead *.conf setf dosini
 
