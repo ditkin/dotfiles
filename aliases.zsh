@@ -1,6 +1,6 @@
 # Common Aliases
-alias ls='gls --color'
-alias la='gls --color -lah'
+alias ls='ls --color'
+alias la='ls --color -lah'
 alias cdb='cd ..'
 alias cdbb='cd ../..'
 alias cdbbb='cd ../../..'
@@ -99,6 +99,7 @@ alias gsts='git stash show --text'
 alias gsu='git submodule update'
 # Resets
 alias grs='git reset'
+alias grsh='git reset --hard'
 alias grh='git reset HEAD'
 alias gnuke='git reset HEAD --hard'
 # Rebasing
@@ -169,7 +170,7 @@ alias glrui='git pull --rebase upstream integration'
 alias glrur='git pull --rebase upstream release'
 alias glrud='git pull --rebase upstream development'
 # diffing
-alias gd='git diff'
+alias gd='git diff --color'
 alias gdo='git diff --oneline'
 # cleaning
 alias gcle='git clean -fd'
