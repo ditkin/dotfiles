@@ -204,3 +204,17 @@ alias pup='cd ~/git/puppet'
 alias cti='cd git/ctct;java6;s env.sh'
 # brackets
 alias b='brackets'
+#docker-compose
+alias dc='docker-compose'
+alias dcu='docker-compose up'
+alias dcd='docker-compose down'
+alias dcr='docker-compose run'
+#docker
+alias dr='docker run'
+alias dp='docker ps'
+alias dpa='docker ps -a'
+alias drm='docker rm'
+alias drma='docker rm -f $(docker ps -a -q)'
+alias dim='docker images'
+alias drmi='docker rmi'
+alias drmia='docker rmi $(docker images -q)'
