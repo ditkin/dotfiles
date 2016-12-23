@@ -8,6 +8,7 @@ alias cdbbbb='cd ../../../..'
 alias cdb5='cd ../../../../..'
 alias t='tail -f'
 alias cdp='popd'
+alias cdv='cd ~/git/ctct/apps/visitor'
 alias zshrc='vim ~/.zshrc' # Quick access to the ~/.zshrc file
 alias sz='source ~/.zshrc'
 alias s='source'
@@ -32,8 +33,12 @@ alias bo="bundle open"
 alias bu="bundle update"
 alias bi="bundle install"
 alias bcn="bundle clean"
+# Rake
+alias berkr="bundle exec rake konacha:run"
+alias berks="bundle exec rake konacha:serve"
 # java
 alias jaba="cd src/main/java"
+alias java6='export JAVA_HOME=$(/usr/libexec/java_home -v 1.6)'
 alias java7='export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)'
 alias java8='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)'
 
@@ -140,7 +145,7 @@ alias gco='git checkout'
 alias gcod='git checkout development'
 alias gcor='git checkout release'
 alias gcom='git checkout master'
-alias gcoi='git checkout master'
+alias gcoi='git checkout integration'
 # Committing
 alias gaa='git add *'
 alias gau='git add -u'
@@ -173,6 +178,9 @@ alias gd='git diff'
 alias gdo='git diff --oneline'
 # cleaning
 alias gcle='git clean -fd'
+# fetching
+alias gfo='git fetch origin'
+alias gfu='git fetch upstream'
 # spui switchers
 alias switch_dev="sudo rm /opt/cc/etc/environment.properties; sudo ln -s /opt/cc/etc/d1.environment.properties /opt/cc/etc/environment.properties"
 alias switch_l1="sudo rm /opt/cc/etc/environment.properties; sudo ln -s /opt/cc/etc/l1.environment.properties /opt/cc/etc/environment.properties"
@@ -191,4 +199,8 @@ alias cdl='cd ~/git/contacts-listpicker-ui'
 alias cdc='cd ~/git/contacts-core'
 #core
 alias re='RAILS_ENV=production_local_d1 bundle exec bin/secure_rails s'
-
+# work aliases
+alias pup='cd ~/git/puppet'
+alias cti='cd git/ctct;java6;s env.sh'
+# brackets
+alias b='brackets'

@@ -12,7 +12,7 @@ HYPHEN_INSENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
 plugins=(git rvm common-aliases battery thefuck bundler rake ruby tmux mvn selenium vagrant npm docker)
 
-export PATH="/bin:/usr/local/bin:/usr/bin:/Users/ditkin/bin:/usr/sbin:/Users/ditkin/.rvm/gems/ruby-2.2.1/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
+#export PATH="/bin:/usr/local/bin:/usr/bin:/Users/ditkin/bin:/usr/sbin:/Users/ditkin/.rvm/gems/ruby-2.2.1/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/Users/ditkin/git/ctct/maven/ccbin:${PATH}"
 
 source $ZSH/oh-my-zsh.sh
 antigen use oh-my-zsh
@@ -35,6 +35,19 @@ source $HOME/dotfiles/aliases.zsh
 
 nvm use 4.4
 rvm use 2.0.0
+
+# Hit Ctrl-Z again to go back in
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
 
 #contacts-core
 # export JRUBY_OPTS='--2.0 -J-Dfile.encoding=UTF-8 -J-Xms3072m -J-Xmx3072m -J-XX:MaxPermSize=512m -J-XX:MaxDirectMemorySize=256M -J-XX:+UseG1GC -J-server -J-Djruby.compile.invokedynamic=false'

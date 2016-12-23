@@ -41,7 +41,7 @@ Plugin 'vim-scripts/python.vim'
 Plugin 'skalnik/vim-vroom'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdcommenter'
-"Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-expand-region'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'jelera/vim-javascript-syntax'
@@ -66,8 +66,8 @@ set viminfo='100,\"100,:20,%,n~/.viminfo
 :map <Tab> <Nop>
 :map <Tab> :vsp
 :map <S-Tab> :sp
-nmap <S-CR> O<Esc>
-nmap <CR> o<Esc>
+:nmap <S-CR> O<Esc>
+:nmap <CR> o<Esc>
 :map <Leader> :w
 :vmap mm <Esc>
 :vmap e $
@@ -88,8 +88,9 @@ nmap <CR> o<Esc>
 :nmap <C-e> :VTreeExplore
 :nmap [ :vertical resize 
 :nmap ] :res
-nmap [bash <Space>#!/bin/bashjj<CR> 
+:nmap [bash <Space>#!/bin/bashjj<CR> 
 :nmap ]r :g/^$/d
+:map ß :SyntasticToggleMode<CR>
 
 "sets random stuff
 set tabstop=2
@@ -114,7 +115,8 @@ set smartindent
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-:set tags=./tags,tags'$HOME
+set tags=./tags,tags'$HOME
+set fileformat=unix
 
 au BufEnter,BufRead *.conf setf dosini
 
@@ -136,6 +138,9 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_warning_symbol = "⚠"
 let g:airline_theme = 'dark'
+
+" CTRLP
+let g:ctrlp_use_caching = 0
 
 :color gotham
 " Color configuration for Supertab readability
