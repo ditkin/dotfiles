@@ -1,0 +1,22 @@
+# docker-compose
+alias dcu='docker-compose up'
+alias dcr='docker-compose rm'
+# docker
+alias dp='docker ps -a'
+alias dk='docker rm -f $(docker ps -a -q)'
+# common
+alias la='ls -al'
+alias cdb='cd ..'
+alias cdbb='cd ../..'
+alias cdbbb='cd ../../..'
+alias na='vim ~/.aliases'
+alias d='cd /home/dit/deploy'
+alias ds='cd /home/dit/deploy/static'
+alias sb='source ~/.bash_profile'
+alias bp='vim ~/.bash_profile'
+alias br='vim ~/.bashrc'
+alias vimrc='vim ~/.vimrc'
+
+# sysadmin
+alias pig='ps -ef | grep'
+

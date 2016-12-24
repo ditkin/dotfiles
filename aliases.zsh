@@ -22,6 +22,7 @@ alias dot='cd ~/dotfiles'
 alias ehost='sudo vim /etc/hosts'
 alias yolo='sudo'
 alias na='vim ~/dotfiles/aliases.zsh'
+alias gall='vim ~/.oh-my-zsh/themes/gallois.zsh-theme'
 # maven
 alias mrmw='rm -rf ~/.m2/repository/com/constantcontact/web-content-svc'
 # Bundler

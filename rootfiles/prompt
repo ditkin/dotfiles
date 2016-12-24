@@ -1,0 +1,10 @@
+GREEN="\[$(tput setaf 2)\]"
+MAGENTA="\[$(tput setaf 5)\]"
+CYAN="\[$(tput setaf 6)\]"
+RESET="\[$(tput sgr0)\]"
+WD=$(pwd)
+USER_STRING="${GREEN}root${RESET}"
+DECORATED_USER_STRING="${CYAN}[${RESET}${USER_STRING}${CYAN}]${RESET}"
+WD_STRING="${MAGENTA}\w${RESET}"
+DECORATED_WD_STRING="${CYAN}[${RESET}${WD_STRING}${CYAN}]$ ${RESET}"
+export PS1="${DECORATED_USER_STRING} ${DECORATED_WD_STRING}"
