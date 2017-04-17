@@ -1,5 +1,6 @@
 # Path to your oh-my-zsh installation.
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$PATH:$JAVA_HOME"
 export NVM_DIR="$HOME/.nvm"
 export NVM_NODEJS_ORG_MIRROR=http://nodejs.org/dist
 . "$(brew --prefix nvm)/nvm.sh"

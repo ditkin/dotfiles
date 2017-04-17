@@ -8,7 +8,6 @@ alias cdbbbb='cd ../../../..'
 alias cdb5='cd ../../../../..'
 alias t='tail -f'
 alias cdp='popd'
-alias cdv='cd ~/git/ctct/apps/visitor'
 alias zshrc='vim ~/.zshrc' # Quick access to the ~/.zshrc file
 alias sz='source ~/.zshrc'
 alias s='source'
@@ -27,6 +26,7 @@ alias mrmw='rm -rf ~/.m2/repository/com/constantcontact/web-content-svc'
 # Bundler
 alias be="bundle exec"
 alias ber="bundle exec rake"
+alias biebr="bundle exec /bin/rails_l1 s"
 alias bl="bundle list"
 alias bp="bundle package"
 alias bo="bundle open"
@@ -41,6 +41,7 @@ alias jaba="cd src/main/java"
 alias java6='export JAVA_HOME=$(/usr/libexec/java_home -v 1.6)'
 alias java7='export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)'
 alias java8='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)'
+alias java86='export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home"'
 
 alias jv="java -version"
 
@@ -176,11 +177,15 @@ alias glrud='git pull --rebase upstream development'
 # diffing
 alias gd='git diff'
 alias gdo='git diff --oneline'
+alias gcpl='git rev-parse HEAD | pbcopy'
 # cleaning
 alias gcle='git clean -fd'
 # fetching
 alias gfo='git fetch origin'
 alias gfu='git fetch upstream'
+alias gbcm='git fetch upstream;git reset --hard upstream/master'
+alias gbcd='git fetch upstream;git reset --hard upstream/development'
+alias gbc='git fetch upstream;git reset --hard'
 # spui switchers
 alias switch_dev="sudo rm /opt/cc/etc/environment.properties; sudo ln -s /opt/cc/etc/d1.environment.properties /opt/cc/etc/environment.properties"
 alias switch_l1="sudo rm /opt/cc/etc/environment.properties; sudo ln -s /opt/cc/etc/l1.environment.properties /opt/cc/etc/environment.properties"
@@ -193,15 +198,29 @@ alias nrl="npm run lint"
 alias ns='npm start'
 alias nre='npm run eslint'
 alias nru='npm run unit_tests'
+alias nrc='npm run chrome'
+alias nrlc='npm run local-chrome'
 
 #cd
 alias cdl='cd ~/git/contacts-listpicker-ui'
 alias cdc='cd ~/git/contacts-core'
+alias cdls='cd ~/git/listgrowth-static'
+alias cds='cd ~/git/signup-form-widget'
+alias cddd='cd ~/git/distui/distuiWeb/distui-war'
+alias cdv='cd ~/git/ctct/apps/visitor'
+alias cdd='cd ~/git/distui'
+alias cdu='cd ~/git/ctct/apps/ui'
 #core
+alias rap='rake assets:precompile'
 alias re='RAILS_ENV=production_local_d1 bundle exec bin/secure_rails s'
+alias grshud='git reset --hard upstream/development'
+alias grshum='git reset --hard upstream/master'
+#node
+alias nv='node -v'
+
 # work aliases
 alias pup='cd ~/git/puppet'
-alias cti='cd git/ctct;java6;s env.sh'
+alias cti='cd ~/git/ctct;java6;s env.sh'
 # brackets
 alias b='brackets'
 #docker-compose
@@ -218,3 +237,15 @@ alias drma='docker rm -f $(docker ps -a -q)'
 alias dim='docker images'
 alias drmi='docker rmi'
 alias drmia='docker rmi $(docker images -q)'
+#docker-machine
+alias dm='docker-machine'
+alias dme='docker-machine env'
+alias dms='docker-machine start'
+alias dmr='docker-machine restart'
+alias dmst='docker-machine stop'
+alias dmrm='docker-machine rm'
+# fefe
+alias feona='ssh dit@feona.party'
+# grunt
+alias rub='grunt build'
+alias ruw='grunt work'
