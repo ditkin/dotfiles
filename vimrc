@@ -1,7 +1,6 @@
-" Turn all of this off for pathogen to be safe.
+" Turn all of this off for pathogen to be safe".
 filetype off
 filetype plugin indent off
-
 " Pathogen
 execute pathogen#infect()
 
@@ -26,7 +25,6 @@ Plugin 'hashivim/vim-vagrant'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'ervandew/supertab'
 Plugin 'pangloss/vim-javascript'
-Plugin 'kchmck/vim-coffee-script'
 Plugin 'benmills/vimux'
 Plugin 'kien/ctrlp.vim'
 Plugin 'kien/rainbow_parentheses.vim' 
@@ -46,7 +44,7 @@ Plugin 'terryma/vim-expand-region'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'vim-scripts/vtreeexplorer' 
-Plugin 'xolox/vim-easytags' 
+Plugin 'navicore/vissort.vim'
 Plugin 'xolox/vim-misc' 
 Plugin 'elubow/cql-vim' 
 
@@ -66,15 +64,20 @@ set viminfo='100,\"100,:20,%,n~/.viminfo
 :map <Tab> <Nop>
 :map <Tab> :vsp
 :map <S-Tab> :sp
-:nmap <S-CR> O<Esc>
 :nmap <CR> o<Esc>
 :map <Leader> :w
+:map π :set paste <CR>
+:map PN :set nopaste <CR>
 :vmap mm <Esc>
 :vmap e $
+" alt-d -> black hole delete
+:map ∂ "_d
+" easier to select to end of line
 :nnoremap e $
 :nnoremap <Space> i
 :map - <Nop>
 :map - gg
+" easy exit from insert
 :imap jj <Esc>l
 :map <M-s> :w<kEnter>
 :imap <M-s> <Esc>:w<kEnter>i
@@ -86,11 +89,12 @@ set viminfo='100,\"100,:20,%,n~/.viminfo
 :vmap ƒ :s/\%V
 :nmap <C-e> <Nop> 
 :nmap <C-e> :VTreeExplore
-:nmap [ :vertical resize 
-:nmap ] :res
-:nmap [bash <Space>#!/bin/bashjj<CR> 
+:nmap [ :vertical resize +3 <CR>
+:nmap ] :vertical resize -3 <CR>
 :nmap ]r :g/^$/d
 :map ß :SyntasticToggleMode<CR>
+" alt+o -> sort highlighted
+:map ø :!sort
 
 "sets random stuff
 set tabstop=2
@@ -140,7 +144,12 @@ let g:syntastic_warning_symbol = "⚠"
 let g:airline_theme = 'dark'
 
 " CTRLP
+let g:ctrlp_use_indexing = 0
 let g:ctrlp_use_caching = 0
+let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
 
 :color gotham
 " Color configuration for Supertab readability
@@ -153,4 +162,3 @@ hi PmenuThumb cterm=NONE ctermfg=darkgreen ctermbg=darkgreen
 autocmd BufNewFile,BufRead *.json set ft=javascript
 " Tags
 set tags=./tags,tags;$HOME
-
