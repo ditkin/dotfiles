@@ -112,6 +112,8 @@ alias grb='git rebase'
 alias grba='git rebase --abort'
 alias grbc='git rebase --continue'
 alias grbi='git rebase -i'
+alias grbium='git rebase -i upstream/master'
+alias grbiud='git rebase -i upstream/development'
 alias grbm='git rebase master'
 alias grbs='git rebase --skip'
 alias gms='git merge --squash'
@@ -201,6 +203,9 @@ alias nru='npm run unit_tests'
 alias nrc='npm run chrome'
 alias nrlc='npm run local-chrome'
 
+#nvm
+alias nvi="nvm install"
+alias nvu="nvm use"
 #cd
 alias cdl='cd ~/git/contacts-listpicker-ui'
 alias cdc='cd ~/git/contacts-core'
