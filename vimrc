@@ -47,6 +47,7 @@ Plugin 'vim-scripts/vtreeexplorer'
 Plugin 'navicore/vissort.vim'
 Plugin 'xolox/vim-misc'
 Plugin 'elubow/cql-vim'
+Plugin 'terryma/vim-multiple-cursors'
 
 call vundle#end()
 
@@ -67,9 +68,11 @@ set viminfo='100,\"100,:20,%,n~/.viminfo
 :map ` :vsp
 :map `1 :sp
 " leader
-:map <Leader> :w
+:map <Leader>w :w<CR>
+:map <Leader>q :wq<CR>
+:map q :q<CR>
 :map π :set paste
-:map πn :set nopaste
+:map πn :set nopaste<CR>
 " Visual mode awesomeness
 :vmap mm <Esc>
 :vmap e $
@@ -100,7 +103,13 @@ set viminfo='100,\"100,:20,%,n~/.viminfo
 :nmap ]r :g/^$/d
 :map ß :SyntasticToggleMode<CR>
 " alt+o -> sort highlighted
-:map ø :!sort
+:map <Leader>s :!sort
+" Search and replace text
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+" Search and prepend text
+vnoremap <C-e> "hy:%s/\(<C-r>h\)/\1/gc<left><left><left><left><left>
+" Search and postpend text
+vnoremap <C-t> "hy:%s/\(<C-r>h\)/\1/gc<left><left><left>
 
 " Autotrim whitespace
 autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif

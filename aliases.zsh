@@ -12,6 +12,8 @@ alias zshrc='vim ~/.zshrc' # Quick access to the ~/.zshrc file
 alias sz='source ~/.zshrc'
 alias s='source'
 alias vimrc='vim ~/.vimrc'
+alias vimpi='vim +PluginInstall'
+alias vimpc='vim +PluginClean'
 alias omz='cd ~/.oh-my-zsh'
 alias grep='grep --color'
 alias h='history'
@@ -78,7 +80,7 @@ alias wms='webdriver-manager start'
 alias prt='protractor'
 
 # Vagrant
-alias vu='vagrant up' 
+alias vu='vagrant up'
 alias vgs='vagrant global-status'
 alias vs='vagrant ssh'
 alias vp='vagrant provision'
