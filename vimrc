@@ -48,6 +48,8 @@ Plugin 'navicore/vissort.vim'
 Plugin 'xolox/vim-misc'
 Plugin 'elubow/cql-vim'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'CodeFalling/vim-easyfont'
+Plugin 'bkad/CamelCaseMotion'
 
 call vundle#end()
 
@@ -73,12 +75,22 @@ set viminfo='100,\"100,:20,%,n~/.viminfo
 :map q :q<CR>
 :map π :set paste
 :map πn :set nopaste<CR>
+" CamelCaseMotion
+map ;w <Plug>CamelCaseMotion_w
+map ;b <Plug>CamelCaseMotion_b
+map ;e <Plug>CamelCaseMotion_e
+map ;ge <Plug>CamelCaseMotion_ge
+vmap ;w <Plug>CamelCaseMotion_w
+vmap ;b <Plug>CamelCaseMotion_b
+vmap ;e <Plug>CamelCaseMotion_e
+vmap ;ge <Plug>CamelCaseMotion_ge
+
 " Visual mode awesomeness
 :vmap mm <Esc>
 :vmap e $
 :vmap ƒ :s/\%V
 " alt-d -> black hole delete
-:map ∂ "_d
+:map <Leader>d "_d
 " easier to select/delete to end of line
 :nnoremap e $
 :nnoremap <Space> i
@@ -116,15 +128,13 @@ autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 
 " Tab options
 autocmd FileType * setlocal tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType javascript setlocal tabstop=4|set shiftwidth=4|set expandtab
 autocmd FileType cpp setlocal tabstop=8|set shiftwidth=8|set softtabstop=8|set noexpandtab
 autocmd FileType elm setlocal tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
 autocmd FileType html setlocal tabstop=4|set shiftwidth=4|set expandtab|set fo-=t
 autocmd FileType python setlocal tabstop=4|set shiftwidth=4|set expandtab
 
 "sets random stuff
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
 set expandtab
 set backupdir=~/.vim/backup_files//
 set dir=~/.vim/swap_files//
@@ -145,8 +155,8 @@ set smartindent
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-set tags=./tags,tags'$HOME
 set fileformat=unix
+let &colorcolumn="100"
 
 au BufEnter,BufRead *.conf setf dosini
 
@@ -185,5 +195,3 @@ hi PmenuSbar cterm=NONE ctermfg=none ctermbg=grey
 hi PmenuThumb cterm=NONE ctermfg=darkgreen ctermbg=darkgreen
 
 autocmd BufNewFile,BufRead *.json set ft=javascript
-" Tags
-set tags=./tags,tags;$HOME
