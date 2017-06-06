@@ -10,7 +10,7 @@ HYPHEN_INSENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
 
 # Add A Million Zsh Plugins
-plugins=(git rvm common-aliases battery thefuck bundler rake ruby tmux mvn selenium vagrant npm docker)
+plugins=(git rvm common-aliases thefuck mvn vagrant npm docker)
 
 # Initialize oh-my-zsh
 export ZSH=/Users/ditkin/.oh-my-zsh
