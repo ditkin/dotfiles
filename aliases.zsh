@@ -8,6 +8,7 @@ alias cdbbbb='cd ../../../..'
 alias cdb5='cd ../../../../..'
 alias t='tail -f'
 alias cdp='popd'
+alias cdg='cd ~/git'
 alias zshrc='vim ~/.zshrc' # Quick access to the ~/.zshrc file
 alias sz='source ~/.zshrc'
 alias s='source'

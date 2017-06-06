@@ -8,9 +8,6 @@ execute pathogen#infect()
 filetype plugin indent on
 syntax on
 
-" Leader
-let mapleader=","
-
 " Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -50,6 +47,7 @@ Plugin 'elubow/cql-vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'CodeFalling/vim-easyfont'
 Plugin 'bkad/CamelCaseMotion'
+Plugin 'posva/vim-vue'
 
 call vundle#end()
 
@@ -61,6 +59,9 @@ call vundle#end()
 " n... :  where to save the viminfo files
 set viminfo='100,\"100,:20,%,n~/.viminfo
 
+let mapleader = "["
+:map <Space> i
+
 " Map
 :map E <Nop>
 :map E :Explore
@@ -71,7 +72,6 @@ set viminfo='100,\"100,:20,%,n~/.viminfo
 :map `1 :sp
 " leader
 :map <Leader>w :w<CR>
-:map <Leader>q :wq<CR>
 :map q :q<CR>
 :map π :set paste
 :map πn :set nopaste<CR>
@@ -88,12 +88,11 @@ vmap ;ge <Plug>CamelCaseMotion_ge
 " Visual mode awesomeness
 :vmap mm <Esc>
 :vmap e $
-:vmap ƒ :s/\%V
+:vmap <Leader>f :s/\%V
 " alt-d -> black hole delete
 :map <Leader>d "_d
 " easier to select/delete to end of line
 :nnoremap e $
-:nnoremap <Space> i
 :map - <Nop>
 :map - gg
 " easy exit from insert
@@ -156,6 +155,8 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 set fileformat=unix
+set wildignore+=*/.git/*,*/node_modules/*,*/coverage/*,*/dist/*,*/.svn/*,*/.idea/*,*/.DS_Store,*/vendor
+let g:ctrlp_custom_ignore = '\v[\/](node_modules)$'
 let &colorcolumn="100"
 
 au BufEnter,BufRead *.conf setf dosini
@@ -182,9 +183,9 @@ let g:airline_theme = 'dark'
 " CTRLP
 let g:ctrlp_use_caching = 0
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
-if executable('ag')
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
+"#if executable('ag')
+"#  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+"#endif
 
 :color gotham
 " Color configuration for Supertab readability
