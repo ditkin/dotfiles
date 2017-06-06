@@ -1,3 +1,11 @@
+"
+" David Itkin
+"
+
+"
+" PLUGIN MANAGERS
+"
+
 " Turn all of this off for pathogen to be safe".
 filetype plugin indent off
 
@@ -12,11 +20,12 @@ syntax on
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" Plugin
+"
+" PLUGINS
+"
 Plugin 'gmarik/Vundle.vim'
+
 " Syntax Highlighters (self-explanatory)
-Plugin 'muz/vim-gemfile'
-Plugin 'hashivim/vim-vagrant'
 Plugin 'pangloss/vim-javascript'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'ekalinin/Dockerfile.vim'
@@ -24,39 +33,54 @@ Plugin 'rodjek/vim-puppet'
 Plugin 'vim-scripts/python.vim'
 Plugin 'posva/vim-vue'
 Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'vim-scripts/rainbow-end'              "Ruby block rainbow highlighting
+Plugin 'muz/vim-gemfile'
+Plugin 'hashivim/vim-vagrant'
+Plugin 'vim-scripts/sh.vim'
+
 " Navigation
-Plugin 'kien/ctrlp.vim' "Go to file
-Plugin 'vim-scripts/vtreeexplorer' "Open tree explorer
+Plugin 'kien/ctrlp.vim'                       "Go to file
+Plugin 'vim-scripts/vtreeexplorer'            "Open tree explorer
+Plugin 'mileszs/ack.vim'                      "Search text in dir ( recursive )
+
 " Utility
-Plugin 'bkad/CamelCaseMotion' "Move / select camel + snake
-Plugin 'tpope/vim-surround' "Wrap selected text
-Plugin 'ervandew/supertab' "Tab complete in Insert
-Plugin 'scrooloose/nerdcommenter' "Comment chunks of text
-Plugin 'navicore/vissort.vim' "Sort visual block selection alphabetically
+Plugin 'bkad/CamelCaseMotion'                 "Move / select camel + snake
+Plugin 'tpope/vim-surround'                   "Wrap selected text
+Plugin 'ervandew/supertab'                    "Tab complete in Insert
+Plugin 'scrooloose/nerdcommenter'             "Comment chunks of text
+Plugin 'navicore/vissort.vim'                 "Sort visual block selection alphabetically
+Plugin 'vim-scripts/indentpython.vim'         "Makes python not break all the time
+
 " Selecting
-Plugin 'terryma/vim-multiple-cursors' "Select multiple occurrences of a word
-Plugin 'terryma/vim-expand-region' "Select increasingly bigger connected textforms
+Plugin 'terryma/vim-multiple-cursors'         "Select multiple occurrences of a word
+Plugin 'terryma/vim-expand-region'            "Select increasingly bigger connected textforms
+
 " Visual
-Plugin 'bling/vim-airline' "The line at the bottom with info
-Plugin 'kien/rainbow_parentheses.vim' "NO IDEA
-Plugin 'airblade/vim-gitgutter' "NO IDEA
+Plugin 'bling/vim-airline'                    "The line at the bottom with info
+Plugin 'airblade/vim-gitgutter'
+
 " Theme
 Plugin 'whatyouhide/vim-gotham'
-Plugin 'vim-scripts/rainbow-end'
-Plugin 'vim-scripts/sh.vim'
-Plugin 'vim-scripts/indentpython.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'xolox/vim-misc'
+
 " Font
-Plugin 'CodeFalling/vim-easyfont'
+Plugin 'CodeFalling/vim-easyfont'             "TODO Find H4X0R Font
 
 call vundle#end()
+
+"
+" KEY MAPS
+"
 
 " Set Leader
 let mapleader = "["
 
 " Insert Easier
 :map <Space> i
+
+" Search Code
+:map <Leader>a :Ack!<Space>
 
 " Explore Mode
 :map E <Nop>
@@ -92,6 +116,7 @@ vmap ;ge <Plug>CamelCaseMotion_ge
 :vmap mm <Esc>
 
 " Move To End Of Line
+:nnoremap e $
 :vmap e $
 
 " Search / Replace In Highlighted Area
@@ -99,9 +124,6 @@ vmap ;ge <Plug>CamelCaseMotion_ge
 
 " Black Hole delete
 :map <Leader>d "_d
-
-" Move To End Of Line In One Key
-:nnoremap e $
 
 " Navigate To Line # In One Key
 :map - <Nop>
@@ -142,16 +164,26 @@ vnoremap <C-e> "hy:%s/\(<C-r>h\)/\1/gc<left><left><left><left><left>
 " Search And Postpend Text
 vnoremap <C-t> "hy:%s/\(<C-r>h\)/\1/gc<left><left><left>
 
+"
+" AUTO-COMMANDS
+"
+
 " Autotrim Whitespace
-autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
+au BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 
 " Tab Sizes
-autocmd FileType * setlocal tabstop=2|set shiftwidth=2|set expandtab
-autocmd FileType javascript setlocal tabstop=4|set shiftwidth=4|set expandtab
-autocmd FileType elm setlocal tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
-autocmd FileType html setlocal tabstop=4|set shiftwidth=4|set expandtab|set fo-=t
+au FileType * setlocal tabstop=2|set shiftwidth=2|set expandtab
+au FileType elm setlocal tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
+au FileType html setlocal tabstop=4|set shiftwidth=4|set expandtab|set fo-=t
+au FileType javascript setlocal tabstop=4|set shiftwidth=4|set expandtab
 
+" Remap some file types
+au BufNewFile,BufRead *.json setf javascript
+au BufEnter,BufRead *.conf setf dosini
+
+"
 " SETS
+"
 set expandtab
 set backupdir=~/.vim/backup_files//
 set dir=~/.vim/swap_files//
@@ -164,7 +196,7 @@ set lazyredraw
 set showmatch
 set hlsearch
 set splitright
-set splitbelow
+" set splitbelow
 set laststatus=2
 set nopaste
 set smartindent
@@ -173,7 +205,11 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 set fileformat=unix
 
-" CTRLP
+"
+" PLUGIN CONFIG
+"
+
+" Make Ctrl-P Ignore Stuff + Go Fast
 set wildignore+=*/.git/*,*/node_modules/*,*/coverage/*,*/dist/*,*/.svn/*,*/.idea/*,*/.DS_Store,*/vendor
 let g:ctrlp_custom_ignore = '\v[\/](node_modules)$'
 let g:ctrlp_use_caching = 0
@@ -200,12 +236,14 @@ let g:airline_theme = 'dark'
 " Awesome color
 :color gotham
 
-" Color configuration for Supertab readability
+" Ack search config
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
+" Supertab colors
 hi Search cterm=NONE ctermfg=red ctermbg=blue
 hi Pmenu cterm=NONE ctermfg=magenta ctermbg=darkblue
 hi PmenuSel cterm=NONE ctermfg=yellow ctermbg=darkgreen
 hi PmenuSbar cterm=NONE ctermfg=none ctermbg=grey
 hi PmenuThumb cterm=NONE ctermfg=darkgreen ctermbg=darkgreen
-
-autocmd BufNewFile,BufRead *.json set ft=javascript
-au BufEnter,BufRead *.conf setf dosini
