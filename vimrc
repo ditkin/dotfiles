@@ -9,7 +9,7 @@ filetype plugin indent on
 syntax on
 
 " Leader
-let mapleader=","
+let mapleader="["
 
 " Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -27,7 +27,7 @@ Plugin 'ervandew/supertab'
 Plugin 'pangloss/vim-javascript'
 Plugin 'benmills/vimux'
 Plugin 'kien/ctrlp.vim'
-Plugin 'kien/rainbow_parentheses.vim' 
+Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'rodjek/vim-puppet'
 Plugin 'whatyouhide/vim-gotham'
@@ -43,10 +43,14 @@ Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-expand-region'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'jelera/vim-javascript-syntax'
-Plugin 'vim-scripts/vtreeexplorer' 
+Plugin 'vim-scripts/vtreeexplorer'
 Plugin 'navicore/vissort.vim'
-Plugin 'xolox/vim-misc' 
-Plugin 'elubow/cql-vim' 
+Plugin 'xolox/vim-misc'
+Plugin 'elubow/cql-vim'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'CodeFalling/vim-easyfont'
+Plugin 'bkad/CamelCaseMotion'
+Plugin 'posva/vim-vue'
 
 call vundle#end()
 
@@ -61,45 +65,76 @@ set viminfo='100,\"100,:20,%,n~/.viminfo
 " Map
 :map E <Nop>
 :map E :Explore
-:map <Tab> <Nop>
-:map <Tab> :vsp
-:map <S-Tab> :sp
-:nmap <CR> o<Esc>
-:map <Leader> :w
-:map π :set paste <CR>
-:map PN :set nopaste <CR>
+:map <CR> o<Esc>
+" splits
+:map ` <Nop>
+:map ` :vsp
+:map `1 :sp
+" leader
+:map <Leader>w :w<CR>
+:map q :q<CR>
+:map π :set paste
+:map πn :set nopaste<CR>
+" CamelCaseMotion
+map ;w <Plug>CamelCaseMotion_w
+map ;b <Plug>CamelCaseMotion_b
+map ;e <Plug>CamelCaseMotion_e
+map ;ge <Plug>CamelCaseMotion_ge
+vmap ;w <Plug>CamelCaseMotion_w
+vmap ;b <Plug>CamelCaseMotion_b
+vmap ;e <Plug>CamelCaseMotion_e
+vmap ;ge <Plug>CamelCaseMotion_ge
+
+" Visual mode awesomeness
 :vmap mm <Esc>
 :vmap e $
+:vmap ƒ :s/\%V
 " alt-d -> black hole delete
-:map ∂ "_d
-" easier to select to end of line
+:map <Leader>d "_d
+" easier to select/delete to end of line
 :nnoremap e $
 :nnoremap <Space> i
 :map - <Nop>
 :map - gg
 " easy exit from insert
 :imap jj <Esc>l
-:map <M-s> :w<kEnter>
-:imap <M-s> <Esc>:w<kEnter>i
+" Move between splits
 :nnoremap <C-j> <C-W><C-J>
 :nnoremap <C-k> <C-W><C-K>
 :nnoremap <C-l> <C-W><C-L>
 :nnoremap <C-h> <C-W><C-H>
+" search to find/replace
 :nnoremap ƒ :%s/
-:vmap ƒ :s/\%V
-:nmap <C-e> <Nop> 
+" nerd tree, man
+:nmap <C-e> <Nop>
 :nmap <C-e> :VTreeExplore
-:nmap [ :vertical resize +3 <CR>
-:nmap ] :vertical resize -3 <CR>
+" resize easy
+:nmap [ :vertical resize +3
+:nmap ] :vertical resize -3
+" remove all empty lines
 :nmap ]r :g/^$/d
 :map ß :SyntasticToggleMode<CR>
 " alt+o -> sort highlighted
-:map ø :!sort
+:map <Leader>s :!sort<CR>
+" Search and replace text
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+" Search and prepend text
+vnoremap <C-e> "hy:%s/\(<C-r>h\)/\1/gc<left><left><left><left><left>
+" Search and postpend text
+vnoremap <C-t> "hy:%s/\(<C-r>h\)/\1/gc<left><left><left>
+
+" Autotrim whitespace
+autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
+
+" Tab options
+autocmd FileType * setlocal tabstop=2|set shiftwidth=2|set expandtab
+autocmd FileType javascript setlocal tabstop=4|set shiftwidth=4|set expandtab
+autocmd FileType cpp setlocal tabstop=8|set shiftwidth=8|set softtabstop=8|set noexpandtab
+autocmd FileType elm setlocal tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
+autocmd FileType html setlocal tabstop=4|set shiftwidth=4|set expandtab|set fo-=t
+autocmd FileType python setlocal tabstop=4|set shiftwidth=4|set expandtab
 
 "sets random stuff
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
 set expandtab
 set backupdir=~/.vim/backup_files//
 set dir=~/.vim/swap_files//
@@ -108,6 +143,7 @@ set expandtab
 set number
 set showcmd
 set wildmenu
+set wildmode=list:longest,full
 set lazyredraw
 set showmatch
 set hlsearch
@@ -119,8 +155,8 @@ set smartindent
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-set tags=./tags,tags'$HOME
 set fileformat=unix
+let &colorcolumn="100"
 
 au BufEnter,BufRead *.conf setf dosini
 
@@ -144,7 +180,6 @@ let g:syntastic_warning_symbol = "⚠"
 let g:airline_theme = 'dark'
 
 " CTRLP
-let g:ctrlp_use_indexing = 0
 let g:ctrlp_use_caching = 0
 let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp'
 if executable('ag')
@@ -154,11 +189,9 @@ endif
 :color gotham
 " Color configuration for Supertab readability
 hi Search cterm=NONE ctermfg=red ctermbg=blue
-hi Pmenu cterm=NONE ctermfg=magenta ctermbg=darkblue 
-hi PmenuSel cterm=NONE ctermfg=yellow ctermbg=darkgreen 
-hi PmenuSbar cterm=NONE ctermfg=none ctermbg=grey 
-hi PmenuThumb cterm=NONE ctermfg=darkgreen ctermbg=darkgreen 
+hi Pmenu cterm=NONE ctermfg=magenta ctermbg=darkblue
+hi PmenuSel cterm=NONE ctermfg=yellow ctermbg=darkgreen
+hi PmenuSbar cterm=NONE ctermfg=none ctermbg=grey
+hi PmenuThumb cterm=NONE ctermfg=darkgreen ctermbg=darkgreen
 
 autocmd BufNewFile,BufRead *.json set ft=javascript
-" Tags
-set tags=./tags,tags;$HOME
