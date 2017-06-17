@@ -1,6 +1,8 @@
-"
-" David Itkin
-"
+""""""""""""""""""""
+"                  "
+"   David Itkin    "
+"                  "
+""""""""""""""""""""
 
 "
 " PLUGIN MANAGERS
@@ -62,7 +64,7 @@ Plugin 'airblade/vim-gitgutter'
 " Theme
 Plugin 'whatyouhide/vim-gotham'
 Plugin 'scrooloose/syntastic'
-Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-misc'                       "Apparently holds vim together with duct tape
 
 " Font
 Plugin 'CodeFalling/vim-easyfont'             "TODO Find H4X0R Font
@@ -164,6 +166,9 @@ vnoremap <C-e> "hy:%s/\(<C-r>h\)/\1/gc<left><left><left><left><left>
 " Search And Postpend Text
 vnoremap <C-t> "hy:%s/\(<C-r>h\)/\1/gc<left><left><left>
 
+" Copy Highlighted Text to System Clipboard
+vmap <Leader>cp :w !pbcopy<CR><CR>
+
 "
 " AUTO-COMMANDS
 "
@@ -196,7 +201,6 @@ set lazyredraw
 set showmatch
 set hlsearch
 set splitright
-" set splitbelow
 set laststatus=2
 set nopaste
 set smartindent
@@ -204,7 +208,7 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 set fileformat=unix
-
+set mouse=a
 "
 " PLUGIN CONFIG
 "
@@ -247,3 +251,5 @@ hi Pmenu cterm=NONE ctermfg=magenta ctermbg=darkblue
 hi PmenuSel cterm=NONE ctermfg=yellow ctermbg=darkgreen
 hi PmenuSbar cterm=NONE ctermfg=none ctermbg=grey
 hi PmenuThumb cterm=NONE ctermfg=darkgreen ctermbg=darkgreen
+
+
