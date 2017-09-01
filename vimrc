@@ -39,6 +39,8 @@ Plugin 'vim-scripts/rainbow-end'              "Ruby block rainbow highlighting
 Plugin 'muz/vim-gemfile'
 Plugin 'hashivim/vim-vagrant'
 Plugin 'vim-scripts/sh.vim'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'fatih/vim-go'
 
 " Navigation
 Plugin 'kien/ctrlp.vim'                       "Go to file
@@ -63,7 +65,7 @@ Plugin 'airblade/vim-gitgutter'
 
 " Theme
 Plugin 'whatyouhide/vim-gotham'
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 Plugin 'xolox/vim-misc'                       "Apparently holds vim together with duct tape
 
 " Font

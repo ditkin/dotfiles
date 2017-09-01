@@ -7,7 +7,6 @@ alias cdbbb='cd ../../..'
 alias cdbbbb='cd ../../../..'
 alias cdb5='cd ../../../../..'
 alias t='tail -f'
-alias cdp='popd'
 alias cdg='cd ~/git'
 alias zshrc='vim ~/.zshrc' # Quick access to the ~/.zshrc file
 alias sz='source ~/.zshrc'
@@ -24,6 +23,9 @@ alias dot='cd ~/dotfiles'
 alias ehost='sudo vim /etc/hosts'
 alias yolo='sudo'
 alias na='vim ~/dotfiles/aliases.zsh'
+# system
+alias peg='ps -ef | grep'
+alias k9='kill -9'
 # maven
 alias mrmw='rm -rf ~/.m2/repository/com/constantcontact/web-content-svc'
 # Bundler
@@ -207,6 +209,7 @@ alias nrc='npm run chrome'
 alias nrlc='npm run local-chrome'
 
 #nvm
+alias nvudp="nvm use --delete-prefix v6.11.0"
 alias nvi="nvm install"
 alias nvu="nvm use"
 #cd
@@ -216,6 +219,8 @@ alias cdls='cd ~/git/listgrowth-static'
 alias cds='cd ~/git/signup-form-widget'
 alias cddd='cd ~/git/distui/distuiWeb/distui-war'
 alias cdv='cd ~/git/ctct/apps/visitor'
+alias cdv2='cd ~/git/contacts-consumer;rvm use jruby-1.7.19'
+alias cdp='cd ~/git/puppet'
 alias cdd='cd ~/git/distui'
 alias cdu='cd ~/git/ctct/apps/ui'
 #core
