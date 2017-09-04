@@ -8,17 +8,10 @@
 " PLUGIN MANAGERS
 "
 
-" Turn all of this off for pathogen to be safe".
-filetype plugin indent off
-
-" Pathogen
-execute pathogen#infect()
-
-" Turn that back on
-filetype plugin indent on
+set nocompatible
+filetype off
 syntax on
 
-" Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -43,7 +36,7 @@ Plugin 'vim-scripts/sh.vim'
 " Navigation
 Plugin 'kien/ctrlp.vim'                       "Go to file
 Plugin 'vim-scripts/vtreeexplorer'            "Open tree explorer
-"Plugin 'mileszs/ack.vim'                      "Search text in dir ( recursive )
+Plugin 'mileszs/ack.vim'                      "Search text in dir ( recursive )
 
 " Utility
 Plugin 'bkad/CamelCaseMotion'                 "Move / select camel + snake
@@ -70,6 +63,7 @@ Plugin 'xolox/vim-misc'                       "Apparently holds vim together wit
 Plugin 'CodeFalling/vim-easyfont'             "TODO Find H4X0R Font
 
 call vundle#end()
+filetype plugin indent on
 
 "
 " KEY MAPS

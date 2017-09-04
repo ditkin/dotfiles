@@ -12,7 +12,6 @@ alias cdg='cd ~/git'
 alias zshrc='vim ~/.zshrc' # Quick access to the ~/.zshrc file
 alias sz='source ~/.zshrc'
 alias s='source'
-alias vimrc='vim ~/.vimrc'
 alias omz='cd ~/.oh-my-zsh'
 alias grep='grep --color'
 alias h='history'
@@ -24,6 +23,12 @@ alias yolo='sudo'
 alias na='vim ~/dotfiles/aliases.zsh'
 
 alias feona='ssh dit@feona.party'
+
+# Vim
+alias vimrc='vim ~/.vimrc'
+alias vimpi='vim +PluginInstall +qall'
+alias vimpc='vim +PluginClean'
+
 # Bundler
 alias be="bundle exec"
 alias ber="bundle exec rake"
