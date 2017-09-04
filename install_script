@@ -23,3 +23,11 @@ for file in $files; do
     echo "Creating symlink to $file in home directory."
     ln -s $dir/$file ~/.$file
     done
+
+# Install Vim Plugins
+vim +PluginInstall +qall
+
+# Change Where Screenshots Get Stored
+mkdir -p ~/Desktop/Screenshots
+defaults write com.apple.screencapture location ~/Desktop/Screenshots
+killall SystemUIServer

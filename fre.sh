@@ -21,6 +21,3 @@ git config --global core.editor /usr/bin/vim
 
 # Run Installation Script To Do The Rest
 sh ~/dotfiles/install_script
-
-# Install Vim Plugins
-vim +PluginInstall +qall
