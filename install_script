@@ -1,16 +1,12 @@
 # This script creates symlinks from the home directory to any desired dotfiles in ~/dotfiles
-############################
 
-########## Variables
-
+# Variables
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles-old             # old dotfiles backup directory
 files="zshrc vim vimrc scm_breeze dir_colors"
 #files="ackrc antigen bashrc tmux vimrc vim zshrc oh-my-zsh tmux.conf syntastic.conf gitconfig gitignore_global"    # list of files/folders to symlink in homedir
 
-##########
-
-# create dotfiles_old in homedir
+# Create dotfiles_old in homedir
 echo "Creating $olddir for backup of any existing dotfiles in ~"
 mkdir -p $olddir
 echo "...done"
