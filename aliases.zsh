@@ -7,7 +7,6 @@ alias cdbbb='cd ../../..'
 alias cdbbbb='cd ../../../..'
 alias cdb5='cd ../../../../..'
 alias t='tail -f'
-alias cdp='popd'
 alias cdg='cd ~/git'
 alias zshrc='vim ~/.zshrc' # Quick access to the ~/.zshrc file
 alias sz='source ~/.zshrc'
@@ -196,8 +195,20 @@ alias nvi='nvm install'
 alias nvu='nvm use'
 
 #cd
-alias cdl='cd ~/git/contacts-listpicker-ui'
-alias cdc='cd ~/git/contacts-core'
+alias cdm='cd ~/git/meetingsui'
+alias cdma='cd ~/git/meetingsui/meetingsadmin'
+alias cdml='cd ~/git/meetingsui/meetingslib'
+alias cds='cd ~/git/settings-ui/settings-ui-app'
+alias cdq='cd ~/git/quotes-ui'
+alias cdp='cd ~/git/products-ui-components'
+alias cdt='cd ~/git/timezone-utils'
+alias cdc='cd ~/git/crm/crm_ui'
+
+#bend
+alias btl='bend test-local'
+alias bsm='bend start:multi'
+alias bsws='bend start:with-settings'
+alias bss='bend start-settings'
 
 ####################################################### docker
 alias dr='docker run'
