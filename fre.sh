@@ -1,5 +1,8 @@
-# Download My Dotfiles
-git clone git@github.com:ditkin/dotfiles.git ~/dotfiles
+# Install Homebrew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# Install oh-my-zsh
+git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 
 # Download Vundle For Vim Plugin Management
 git clone https://github.com/gmarik/Vundle.vim.git ~/dotfiles/vim/bundle/Vundle.vim

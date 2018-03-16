@@ -22,7 +22,7 @@ Plugin 'gmarik/Vundle.vim'
 
 " Syntax Highlighters (self-explanatory)
 Plugin 'pangloss/vim-javascript'
-Plugin 'isRuslan/vim-es6'
+"Plugin 'isRuslan/vim-es6'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'rodjek/vim-puppet'
 Plugin 'vim-scripts/python.vim'
@@ -32,6 +32,8 @@ Plugin 'vim-scripts/rainbow-end'              "Ruby block rainbow highlighting
 Plugin 'muz/vim-gemfile'
 Plugin 'hashivim/vim-vagrant'
 Plugin 'vim-scripts/sh.vim'
+Plugin 'digitaltoad/vim-pug'
+Plugin 'mxw/vim-jsx'
 
 " Navigation
 Plugin 'kien/ctrlp.vim'                       "Go to file
@@ -45,6 +47,7 @@ Plugin 'ervandew/supertab'                    "Tab complete in Insert
 Plugin 'scrooloose/nerdcommenter'             "Comment chunks of text
 Plugin 'navicore/vissort.vim'                 "Sort visual block selection alphabetically
 Plugin 'vim-scripts/indentpython.vim'         "Makes python not break all the time
+Plugin 'jiangmiao/auto-pairs'                 "Insert, delete parens in pairs
 
 " Selecting
 Plugin 'terryma/vim-multiple-cursors'         "Select multiple occurrences of a word
@@ -56,6 +59,7 @@ Plugin 'airblade/vim-gitgutter'
 
 " Theme
 Plugin 'whatyouhide/vim-gotham'
+Plugin 'nanotech/jellybeans.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'xolox/vim-misc'                       "Apparently holds vim together with duct tape
 
@@ -90,9 +94,12 @@ let mapleader = "["
 :map ` :vsp
 :map `1 :sp
 
+:noremap <Leader>q q
+
 " Quit & Save
 :map <Leader>w :w<CR>
-:map q :q<CR>
+:noremap q :q<CR>
+:imap ∆ jj<Leader>w
 
 " Paste Mode
 :map π :set paste
@@ -163,6 +170,12 @@ vnoremap <C-t> "hy:%s/\(<C-r>h\)/\1/gc<left><left><left>
 " Copy Highlighted Text to System Clipboard
 vmap <Leader>cp :w !pbcopy<CR><CR>
 
+" Indent a block by one
+:nmap <Leader>i <C-v>%I<Tab>jj
+
+" Indent selection
+:vmap <Leader>i I<Tab>jj
+
 "
 " AUTO-COMMANDS
 "
@@ -174,7 +187,9 @@ au BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 au FileType * setlocal tabstop=2|set shiftwidth=2|set expandtab
 au FileType elm setlocal tabstop=4|set shiftwidth=4|set softtabstop=4|set expandtab
 au FileType html setlocal tabstop=4|set shiftwidth=4|set expandtab|set fo-=t
-au FileType javascript setlocal tabstop=4|set shiftwidth=4|set expandtab
+au FileType jade setlocal tabstop=4|set shiftwidth=4|set expandtab|set fo-=t
+au FileType javascript setlocal tabstop=2|set shiftwidth=2|set expandtab
+au FileType jade setlocal tabstop=4|set shiftwidth=4|set expandtab
 
 " Remap some file types
 au BufNewFile,BufRead *.json setf javascript
@@ -211,6 +226,8 @@ set mouse=a
 set wildignore+=*/.git/*,*/node_modules/*,*/coverage/*,*/dist/*,*/.svn/*,*/.idea/*,*/.DS_Store,*/vendor
 let g:ctrlp_custom_ignore = '\v[\/](node_modules)$'
 let g:ctrlp_use_caching = 0
+" Enable JSX support in JS files
+let g:jsx_ext_required = 0
 
 " Sets Too-Long-Line Marker
 let &colorcolumn="100"
@@ -232,7 +249,8 @@ let g:syntastic_warning_symbol = "⚠"
 let g:airline_theme = 'dark'
 
 " Awesome color
-:color gotham
+colorscheme jellybeans
+
 
 " Ack search config
 if executable('ag')

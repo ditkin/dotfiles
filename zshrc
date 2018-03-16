@@ -13,20 +13,22 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(git rvm common-aliases ruby npm docker)
 
 # Initialize oh-my-zsh
-export ZSH=/Users/ditkin/.oh-my-zsh
+export ZSH=/Users/ditkin/oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
 # Configure oh-my-zsh With Antigen
-source ~/dotfiles/antigen/antigen.zsh
+source ~/dotfiles/antigen.zsh
 antigen use oh-my-zsh
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen theme gallois
+antigen apply
 
-eval "$(thefuck --alias fuck)"
 export LS_COLORS='di=32:fi=31:ex=5:ln=4;31:or=4:pi=5:so=5:bd=5'
 
-# Setup Scm Breeze For Pretty Gitty
 [ -s "/Users/ditkin/.scm_breeze/scm_breeze.sh" ] && source "/Users/ditkin/.scm_breeze/scm_breeze.sh"
 
 # Load Aliases
 source $HOME/dotfiles/aliases.zsh
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export PATH="$HOME/.yarn/bin:$PATH"
