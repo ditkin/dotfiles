@@ -20,6 +20,8 @@ alias dot='cd ~/dotfiles'
 alias ehost='sudo vim /etc/hosts'
 alias yolo='sudo'
 alias na='vim ~/dotfiles/aliases.zsh'
+alias rmz='rm ~/.antigen/.zcompdump*;rm ~/.zcompdump*'
+alias ch='cat /usr/local/Cellar/hs-static/3.9.9/src/tmp/pids/server.pid'
 
 alias feona='ssh dit@feona.party'
 
@@ -81,14 +83,6 @@ alias wmu='webdriver-manager update'
 alias wms='webdriver-manager start'
 alias prt='protractor'
 
-# Vagrant
-alias vu='vagrant up'
-alias vgs='vagrant global-status'
-alias vs='vagrant ssh'
-alias vp='vagrant provision'
-alias vd='vagrant destroy'
-alias vrp='vagrant reload --provision'
-
 ######################################################################## Git
 # Branching
 alias grv='git remote -v'
@@ -109,6 +103,7 @@ alias gsts='git stash show --text'
 alias gsu='git submodule update'
 # Resets
 alias grs='git reset'
+alias grsh1='git reset --hard HEAD~1'
 alias grh='git reset HEAD'
 alias gnuke='git reset HEAD --hard'
 alias gbcm='git fetch upstream;git reset --hard upstream/master'
@@ -141,12 +136,14 @@ alias gcod='git checkout development'
 alias gcor='git checkout release'
 alias gcom='git checkout master'
 alias gcoi='git checkout integration'
+alias gcoum='git checkout upstream/master'
 
 # Committing
 alias gaa='git add *'
 alias gau='git add -u'
 alias gcmsg='git commit -m'
 alias gca='git commit --amend'
+alias gcnm='git commit --no-verify -m'
 
 # Pulling
 alias glo='git pull origin'
@@ -167,6 +164,7 @@ alias gcpl='git rev-parse HEAD | pbcopy'
 
 # diffing
 alias gd='git diff'
+alias gdum='git diff upstream/master'
 alias gdo='git diff --oneline'
 
 # cleaning
@@ -197,18 +195,34 @@ alias nvu='nvm use'
 #cd
 alias cdm='cd ~/git/meetingsui'
 alias cdma='cd ~/git/meetingsui/meetingsadmin'
+alias cdmp='cd ~/git/meetingsui/meetingspublic'
 alias cdml='cd ~/git/meetingsui/meetingslib'
 alias cds='cd ~/git/settings-ui/settings-ui-app'
 alias cdq='cd ~/git/quotes-ui'
 alias cdp='cd ~/git/products-ui-components'
 alias cdt='cd ~/git/timezone-utils'
 alias cdc='cd ~/git/crm/crm_ui'
+alias cdi='cd ~/git/InboxConnectUtils'
+
+# vim
+alias vp='vim package.json'
+alias vsc='vim static/static_conf.json'
 
 #bend
+alias bi='bend install'
 alias btl='bend test-local'
 alias bsm='bend start:multi'
 alias bsws='bend start:with-settings'
 alias bss='bend start-settings'
+
+#hs-static
+alias hsr='hs-static run'
+alias hsud='hs-static update-dependencies'
+alias hsuhs='hs-static update-hs-static'
+
+# k9
+alias peg='ps -ef | grep'
+alias k9='kill -9'
 
 ####################################################### docker
 alias dr='docker run'
