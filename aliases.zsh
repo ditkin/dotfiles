@@ -107,6 +107,7 @@ alias grsh1='git reset --hard HEAD~1'
 alias grh='git reset HEAD'
 alias gnuke='git reset HEAD --hard'
 alias gbcm='git fetch upstream;git reset --hard upstream/master'
+alias gcbcm='git checkout master;git fetch upstream;git reset --hard upstream/master'
 
 # Rebasing
 alias grb='git rebase'
@@ -119,13 +120,13 @@ alias gms='git merge --squash'
 
 # Pushing
 alias gpu='git push upstream'
+alias gpnu='git push upstream --no-verify'
 alias gpo='git push origin'
 alias gpom='git push origin master'
 alias gpof='git push origin --force'
 alias gpofm='git push origin --force master'
 alias gpum='git push upstream master'
-alias attack='git push upstream --force'
-alias attackm='git push upstream --force master'
+alias atk='git push upstream --force'
 
 # Cloning
 alias gcl='git clone'
@@ -197,21 +198,31 @@ alias cdm='cd ~/git/meetingsui'
 alias cdma='cd ~/git/meetingsui/meetingsadmin'
 alias cdmp='cd ~/git/meetingsui/meetingspublic'
 alias cdml='cd ~/git/meetingsui/meetingslib'
-alias cds='cd ~/git/settings-ui/settings-ui-app'
+alias cdmb='cd ~/git/meetingsui/meetingsbase'
+alias cdme='cd ~/git/meetingsui/meetingsembed'
+alias cds='cd ~/git/settings-ui/'
 alias cdq='cd ~/git/quotes-ui'
 alias cdp='cd ~/git/products-ui-components'
 alias cdt='cd ~/git/timezone-utils'
-alias cdc='cd ~/git/crm/crm_ui'
+alias cdc='cd ~/git/crm'
+alias cdcs='cd ~/git/crm/crm_settings'
+alias cdcd='cd ~/git/crm/crm_data'
 alias cdi='cd ~/git/InboxConnectUtils'
+alias cde='cd ~/git/EmailNotificationTemplates'
 
 # vim
 alias vp='vim package.json'
 alias vsc='vim static/static_conf.json'
 
 #bend
-alias bi='bend install'
-alias btl='bend test-local'
+alias bs='bend start'
+alias by='bend yarn'
+alias btl='bend yarn test-local'
 alias bsm='bend start:multi'
+alias bsmu='bend start:multi:update'
+alias bsumu='bend start:ui:multi:update'
+alias bsum='bend start:ui:multi'
+
 alias bsws='bend start:with-settings'
 alias bss='bend start-settings'
 

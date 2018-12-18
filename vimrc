@@ -48,6 +48,7 @@ Plugin 'scrooloose/nerdcommenter'             "Comment chunks of text
 Plugin 'navicore/vissort.vim'                 "Sort visual block selection alphabetically
 Plugin 'vim-scripts/indentpython.vim'         "Makes python not break all the time
 Plugin 'jiangmiao/auto-pairs'                 "Insert, delete parens in pairs
+Plugin 'sbdchd/neoformat'                     "Auto make everything look good
 
 " Selecting
 Plugin 'terryma/vim-multiple-cursors'         "Select multiple occurrences of a word
@@ -176,6 +177,9 @@ vmap <Leader>cp :w !pbcopy<CR><CR>
 " Indent selection
 :vmap <Leader>i I<Tab>jj
 
+" Prettier
+:map <Leader>p :Neoformat<CR>
+
 "
 " AUTO-COMMANDS
 "
@@ -264,4 +268,12 @@ hi PmenuSel cterm=NONE ctermfg=yellow ctermbg=darkgreen
 hi PmenuSbar cterm=NONE ctermfg=none ctermbg=grey
 hi PmenuThumb cterm=NONE ctermfg=darkgreen ctermbg=darkgreen
 
+" Prettier
+let g:neoformat_javascript_prettier = {
+  \ 'exe': '~/git/products-ui-components/node_modules/prettier/bin/prettier.js',
+  \ 'args': ['--config ~/git/products-ui-components/prettier.config.js'],
+  \ 'stdin': 1,
+  \ }
+
+let g:neoformat_enabled_javascript = ['prettier']
 
