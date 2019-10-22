@@ -8,6 +8,7 @@ alias cdbbbb='cd ../../../..'
 alias cdb5='cd ../../../../..'
 alias t='tail -f'
 alias cdg='cd ~/git'
+alias sj='cd static/js'
 alias zshrc='vim ~/.zshrc' # Quick access to the ~/.zshrc file
 alias sz='source ~/.zshrc'
 alias s='source'
@@ -106,8 +107,8 @@ alias grs='git reset'
 alias grsh1='git reset --hard HEAD~1'
 alias grh='git reset HEAD'
 alias gnuke='git reset HEAD --hard'
-alias gbcm='git fetch upstream;git reset --hard upstream/master'
-alias gcbcm='git checkout master;git fetch upstream;git reset --hard upstream/master'
+alias gbcm='git fetch origin;git reset --hard origin/master'
+alias gcbcm='git checkout master;git fetch origin;git reset --hard origin/master'
 
 # Rebasing
 alias grb='git rebase'
@@ -119,14 +120,12 @@ alias grbs='git rebase --skip'
 alias gms='git merge --squash'
 
 # Pushing
-alias gpu='git push upstream'
-alias gpnu='git push upstream --no-verify'
+alias gpno='git push origin --no-verify'
 alias gpo='git push origin'
 alias gpom='git push origin master'
 alias gpof='git push origin --force'
+alias atk='git push origin --no-verify --force'
 alias gpofm='git push origin --force master'
-alias gpum='git push upstream master'
-alias atk='git push upstream --force'
 
 # Cloning
 alias gcl='git clone'
@@ -137,12 +136,12 @@ alias gcod='git checkout development'
 alias gcor='git checkout release'
 alias gcom='git checkout master'
 alias gcoi='git checkout integration'
-alias gcoum='git checkout upstream/master'
+alias gcoom='git checkout origin/master'
 
 # Committing
 alias gaa='git add *'
 alias gau='git add -u'
-alias gcmsg='git commit -m'
+alias gmg='git commit -m'
 alias gca='git commit --amend'
 alias gcnm='git commit --no-verify -m'
 
@@ -157,7 +156,7 @@ alias glro='git pull --rebase origin'
 alias glrom='git pull --rebase origin master'
 alias glru='git pull --rebase upstream'
 alias glrum='git pull --rebase upstream master'
-alias grbium='git fetch upstream;git rebase -i upstream/master'
+alias grbiom='git fetch origin;git rebase -i origin/master'
 
 # cherry pick
 alias gcp='git cherry-pick'
@@ -165,8 +164,7 @@ alias gcpl='git rev-parse HEAD | pbcopy'
 
 # diffing
 alias gd='git diff'
-alias gdum='git diff upstream/master'
-alias gdo='git diff --oneline'
+alias gdom='git diff origin/master'
 
 # cleaning
 alias gcle='git clean -fd'
@@ -200,19 +198,24 @@ alias cdmp='cd ~/git/meetingsui/meetingspublic'
 alias cdml='cd ~/git/meetingsui/meetingslib'
 alias cdmb='cd ~/git/meetingsui/meetingsbase'
 alias cdme='cd ~/git/meetingsui/meetingsembed'
+alias cdmas='cd ~/git/meetingsui/meetingsadmin/selenium'
 alias cds='cd ~/git/settings-ui/'
 alias cdq='cd ~/git/quotes-ui'
+alias cdqa='cd ~/git/quotes-admin'
 alias cdp='cd ~/git/products-ui-components'
 alias cdt='cd ~/git/timezone-utils'
 alias cdc='cd ~/git/crm'
 alias cdcs='cd ~/git/crm/crm_settings'
 alias cdcd='cd ~/git/crm/crm_data'
 alias cdi='cd ~/git/InboxConnectUtils'
-alias cde='cd ~/git/EmailNotificationTemplates'
+alias cde='cd ~/git/InboundDbQuotes/inbounddb_quotes_emails_static'
+alias cdco='cd ~/git/customer-data-objects'
+alias cdr='cd ~/git/reference-resolvers'
 
 # vim
 alias vp='vim package.json'
 alias vsc='vim static/static_conf.json'
+alias rmn='rm -rf node_modules/'
 
 #bend
 alias bs='bend start'
@@ -220,6 +223,8 @@ alias by='bend yarn'
 alias btl='bend yarn test-local'
 alias bsm='bend start:multi'
 alias bsmu='bend start:multi:update'
+alias bsu='bend start:update'
+alias bsui='bend start:ui'
 alias bsumu='bend start:ui:multi:update'
 alias bsum='bend start:ui:multi'
 

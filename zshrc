@@ -4,7 +4,6 @@ export PATH="$PATH:$HOME/.rvm/bin:$HOME/bin"
 # Initialize Nvm And Rvm
 . "$(brew --prefix nvm)/nvm.sh"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-
 # Configure Generic Shell Operations For Usability
 HYPHEN_INSENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
@@ -32,3 +31,6 @@ source $HOME/dotfiles/aliases.zsh
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export PATH="$HOME/.yarn/bin:$PATH"
+
+# Added by nex: https://git.hubteam.com/HubSpot/nex
+. ~/.hubspot/shellrc
