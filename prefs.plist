@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>customSites</key>
+	<dict>
+		<key>00835C1E-05DB-4A48-851D-781EE150ED0A</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>qd</string>
+			<key>text</key>
+			<string>qa deals</string>
+			<key>url</key>
+			<string>https://app.hubspotqa.com/sales/99562171/deals</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>05D226C4-FCE8-4950-B0FA-3117D8994288</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>l</string>
+			<key>text</key>
+			<string>local</string>
+			<key>url</key>
+			<string>https://local.hubspotqa.com/meetings/99562171</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>3A88F710-35EA-4CF0-A611-E3F893BBDD17</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>ld</string>
+			<key>text</key>
+			<string>local deals</string>
+			<key>url</key>
+			<string>https://local.hubspotqa.com/sales/99562171/deals</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>50116978-A161-48A3-BB77-176D58175E88</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>ls</string>
+			<key>text</key>
+			<string>local settings</string>
+			<key>url</key>
+			<string>https://local.hubspotqa.com/settings/99562171/sales/meetings</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>93304C3C-F552-4051-A8A2-F47F389BC007</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>qs</string>
+			<key>text</key>
+			<string>qa settings</string>
+			<key>url</key>
+			<string>https://app.hubspotqa.com/settings/99562171/sales/meetings</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>9A23352D-9A99-4126-838C-818CE82464C1</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>qm</string>
+			<key>text</key>
+			<string>qa meetings</string>
+			<key>url</key>
+			<string>https://app.hubspotqa.com/meetings/99562171</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>E598F735-718F-4EC1-A2B2-6505EC7C9F80</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>g</string>
+			<key>text</key>
+			<string>Jump to Git</string>
+			<key>url</key>
+			<string>https://git.hubteam.com/HubSpot/</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>E7425813-149F-4247-A148-7BFDB6482DA4</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>q</string>
+			<key>text</key>
+			<string>qa</string>
+			<key>url</key>
+			<string>https://app.hubspotqa.com/</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>E9A48370-6FD7-4EBF-98E8-CDBD6A1A4B15</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>lm</string>
+			<key>text</key>
+			<string>local meetings</string>
+			<key>url</key>
+			<string>https://local.hubspotqa.com/meetings/99562171</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>onlyShowEnabledInPrefs</key>
+	<true/>
+</dict>
+</plist>
