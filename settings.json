@@ -1,0 +1,23 @@
+{
+    "[javascript]": {
+        "editor.formatOnSave": true,
+        "editor.tabSize": 2
+    },
+    "[css]": {
+        "editor.formatOnSave": true,
+        "editor.tabSize": 2
+    },
+    "python.formatting.provider": "yapf",
+    "prettier.bracketSpacing": true, // Default
+    "prettier.jsxBracketSameLine": false, // Default
+    "prettier.printWidth": 80, // Default
+    "prettier.semi": true, // Default
+    "prettier.singleQuote": true,
+    "prettier.trailingComma": "es5",
+    "prettier.useTabs": false, // Default
+    "prettier.proseWrap": "never",
+    "window.zoomLevel": 0,
+    "workbench.colorTheme": "Monokai",
+    "workbench.startupEditor": "newUntitledFile",
+    "editor.tabSize": 2
+}

@@ -1,0 +1,61 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+    {
+        "key": "ctrl+left",
+        "command": "extension.moveCamelLeftCommand",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+left",
+        "command": "-extension.moveCamelLeftCommand",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+right",
+        "command": "extension.moveCamelRightCommand",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+right",
+        "command": "-extension.moveCamelRightCommand",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+left",
+        "command": "-extension.extendCamelLeftCommand",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+right",
+        "command": "-extension.extendCamelRightCommand",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+alt+down",
+        "command": "-incrementor.decByTenth"
+    },
+    {
+        "key": "ctrl+alt+up",
+        "command": "-incrementor.incByTenth"
+    },
+    {
+        "key": "ctrl+alt+up",
+        "command": "editor.action.insertCursorAbove",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+cmd+up",
+        "command": "-editor.action.insertCursorAbove",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+alt+down",
+        "command": "editor.action.insertCursorBelow",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+cmd+down",
+        "command": "-editor.action.insertCursorBelow",
+        "when": "editorTextFocus"
+    }
+]
