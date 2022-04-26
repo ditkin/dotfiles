@@ -10,22 +10,41 @@ export ZSH=/Users/ditkin/.oh-my-zsh
 source ~/dotfiles/antigen/antigen.zsh
 HYPHEN_INSENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
-plugins=(git rvm common-aliases battery thefuck bundler rake ruby tmux mvn selenium vagrant npm docker)
+plugins=(git rvm common-aliases battery bundler ruby selenium npm)
 
 #export PATH="/bin:/usr/local/bin:/usr/bin:/Users/ditkin/bin:/usr/sbin:/Users/ditkin/.rvm/gems/ruby-2.2.1/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/Users/ditkin/git/ctct/maven/ccbin:${PATH}"
 
 source $ZSH/oh-my-zsh.sh
 antigen use oh-my-zsh
 antigen bundle zsh-users/zsh-syntax-highlighting
-antigen theme garyblessington
-# CUSTOM ZSH PROMPT
-PROMPT='%{$fg[magenta]%}%~%{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%}% %{$reset_color%}: '
-ZSH_THEME_GIT_PROMPT_PREFIX="(%{$fg[blue]%}"
-#ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[red]%}✗%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
+antigen apply
 
-eval "$(thefuck --alias fuck)"
+#######################################################################3
+# gallois theme
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}%{$fg[green]%}["
+ZSH_THEME_GIT_PROMPT_SUFFIX="]%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}*%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_CLEAN=""
+
+#Customized git status, oh-my-zsh currently does not allow render dirty status before branch
+git_custom_status() {
+  local cb=$(current_branch)
+  if [ -n "$cb" ]; then
+    echo "$(parse_git_dirty)%{$fg_bold[yellow]%}$(work_in_progress)%{$reset_color%}$ZSH_THEME_GIT_PROMPT_PREFIX$(current_branch)$ZSH_THEME_GIT_PROMPT_SUFFIX"
+  fi
+}
+
+# RVM component of prompt
+ZSH_THEME_RVM_PROMPT_PREFIX="%{$fg[red]%}["
+ZSH_THEME_RVM_PROMPT_SUFFIX="]%{$reset_color%}"
+
+# Combine it all into a final right-side prompt
+RPS1='$(git_custom_status)$(ruby_prompt_info) $EPS1'
+
+PROMPT='%{$fg[cyan]%}[%~% ]%(?.%{$fg[green]%}.%{$fg[red]%})%B$%b '
+#######################################################################3
+
+
 export LS_COLORS='di=32:fi=31:ex=5:ln=4;31:or=4:pi=5:so=5:bd=5'
 #eval `gdircolors ~/.dir_colors`
 #export EDITOR=`which vim`
@@ -33,8 +52,7 @@ export LS_COLORS='di=32:fi=31:ex=5:ln=4;31:or=4:pi=5:so=5:bd=5'
 [ -s "/Users/ditkin/.scm_breeze/scm_breeze.sh" ] && source "/Users/ditkin/.scm_breeze/scm_breeze.sh"
 source $HOME/dotfiles/aliases.zsh
 
-nvm use 4.4
-rvm use 2.0.0
+#rvm use 2.0.0
 
 # Hit Ctrl-Z again to go back in
 fancy-ctrl-z () {
@@ -48,7 +66,3 @@ fancy-ctrl-z () {
 }
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
-
-#contacts-core
-# export JRUBY_OPTS='--2.0 -J-Dfile.encoding=UTF-8 -J-Xms3072m -J-Xmx3072m -J-XX:MaxPermSize=512m -J-XX:MaxDirectMemorySize=256M -J-XX:+UseG1GC -J-server -J-Djruby.compile.invokedynamic=false'
-#[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

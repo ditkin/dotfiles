@@ -6,8 +6,8 @@ alias cdbb='cd ../..'
 alias cdbbb='cd ../../..'
 alias cdbbbb='cd ../../../..'
 alias cdb5='cd ../../../../..'
+alias cdg='cd ~/git'
 alias t='tail -f'
-alias cdp='popd'
 alias cdv='cd ~/git/ctct/apps/visitor'
 alias zshrc='vim ~/.zshrc' # Quick access to the ~/.zshrc file
 alias sz='source ~/.zshrc'
@@ -22,67 +22,26 @@ alias dot='cd ~/dotfiles'
 alias ehost='sudo vim /etc/hosts'
 alias yolo='sudo'
 alias na='vim ~/dotfiles/aliases.zsh'
-# maven
-alias mrmw='rm -rf ~/.m2/repository/com/constantcontact/web-content-svc'
-# Bundler
-alias be="bundle exec"
-alias ber="bundle exec rake"
-alias bl="bundle list"
-alias bp="bundle package"
-alias bo="bundle open"
-alias bu="bundle update"
-alias bi="bundle install"
-alias bcn="bundle clean"
-# Rake
-alias berkr="bundle exec rake konacha:run"
-alias berks="bundle exec rake konacha:serve"
+# git aliases
+alias cdp='cd ~/git/products-ui-components'
+alias cds='cd ~/git/settings-ui-products'
+alias cdo='cd ~/git/customer-data-objects'
+alias cdc='cd ~/git/crm'
+alias cdqa='cd ~/git/quotes-admin'
+alias cdl='cd ~/git/line-items-ui'
+alias cdr='cd ~/git/reference-resolvers'
+# bend
+alias brs='bend reactor serve'
+alias by='bend yarn'
+alias bs='bend start'
+# package
+alias vp='vim package.json'
+alias vsc='vim static_conf.json'
 # java
-alias jaba="cd src/main/java"
-alias java6='export JAVA_HOME=$(/usr/libexec/java_home -v 1.6)'
-alias java7='export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)'
-alias java8='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)'
 
 alias jv="java -version"
 
-# Rake
-alias rds='rake db:seed'
-alias rdr='rake db:reset'
-alias rdc='rake db:create'
-alias rdm='rake db:migrate'
 
-# Tmux
-alias ta='tmux attach -t'
-alias ts='tmux new-session -s'
-alias tl='tmux list-sessions'
-alias tksv='tmux kill-server'
-alias tkss='tmux kill-session -t'
-
-# Rvm
-alias rvosa='rvm osx-ssl-certs status all'
-alias rvoua='rvm osx-ssl-certs update all'
-alias rvl='rvm list'
-alias rvu='rvm use'
-alias rgu='rvm gemset use'
-alias rgc='rvm gemset create'
-alias rgl='rvm gemset list'
-alias rvi='rvm install'
-
-# Gem
-alias gi='gem install'
-alias gibi='gem install bundler;bundle install'
-
-# Selenium
-alias wmu='webdriver-manager update'
-alias wms='webdriver-manager start'
-alias prt='protractor'
-
-# Vagrant
-alias vu='vagrant up' 
-alias vgs='vagrant global-status'
-alias vs='vagrant ssh'
-alias vp='vagrant provision'
-alias vd='vagrant destroy'
-alias vrp='vagrant reload --provision'
 
 ######################################################################## Git
 # Branching
@@ -105,12 +64,17 @@ alias gsu='git submodule update'
 # Resets
 alias grs='git reset'
 alias grh='git reset HEAD'
-alias gnuke='git reset HEAD --hard'
+alias gcbcm='git fetch origin;git checkout master;git reset HEAD --hard'
+alias gcom='git fetch origin;git checkout master'
+# cherry pick
+alias gcpl='git rev-parse HEAD | tr -d '\n' | pbcopy'
+alias gcp='git cherry-pick'
 # Rebasing
 alias grb='git rebase'
 alias grba='git rebase --abort'
 alias grbc='git rebase --continue'
 alias grbi='git rebase -i'
+alias grbiom='git rebase -i origin/master'
 alias grbm='git rebase master'
 alias grbs='git rebase --skip'
 alias gms='git merge --squash'
@@ -146,10 +110,11 @@ alias gcod='git checkout development'
 alias gcor='git checkout release'
 alias gcom='git checkout master'
 alias gcoi='git checkout integration'
+alias gcoi='git checkout integration'
 # Committing
 alias gaa='git add *'
 alias gau='git add -u'
-alias gcmsg='git commit -m'
+alias gc='git commit -m'
 alias gca='git commit --amend'
 # Pulling
 alias glo='git pull origin'
@@ -181,10 +146,6 @@ alias gcle='git clean -fd'
 # fetching
 alias gfo='git fetch origin'
 alias gfu='git fetch upstream'
-# spui switchers
-alias switch_dev="sudo rm /opt/cc/etc/environment.properties; sudo ln -s /opt/cc/etc/d1.environment.properties /opt/cc/etc/environment.properties"
-alias switch_l1="sudo rm /opt/cc/etc/environment.properties; sudo ln -s /opt/cc/etc/l1.environment.properties /opt/cc/etc/environment.properties"
-alias start_spui="cp ~/Documents/start_spui/.ruby-version ~/git/spui/spui-webapp; cd ~/git/spui/spui-webapp; cp ~/Documents/start_spui/1_ldap_vault.rb ~/git/spui/spui-webapp/config/initializers/1_ldap_vault.rb; cp ~/Documents/start_spui/spui-local-config.yml ~/git/spui/spui-webapp/config/spui-local-config.yml; DEV_ACCOUNT_ID=1100495881808 DEV_USER_UUID=91de826a-882a-45fb-8e66-872f15ffe42b rails s -p 3000"
 #npm
 alias ni="npm install"
 alias nrt="npm run test"
@@ -195,10 +156,6 @@ alias nre='npm run eslint'
 alias nru='npm run unit_tests'
 
 #cd
-alias cdl='cd ~/git/contacts-listpicker-ui'
-alias cdc='cd ~/git/contacts-core'
-#core
-alias re='RAILS_ENV=production_local_d1 bundle exec bin/secure_rails s'
 # work aliases
 alias pup='cd ~/git/puppet'
 alias cti='cd git/ctct;java6;s env.sh'

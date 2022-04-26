@@ -61,6 +61,7 @@ call vundle#end()
 set viminfo='100,\"100,:20,%,n~/.viminfo
 
 " Map
+:map q :q<CR>
 :map E <Nop>
 :map E :Explore
 :map <Tab> <Nop>
@@ -86,9 +87,8 @@ set viminfo='100,\"100,:20,%,n~/.viminfo
 :vmap ƒ :s/\%V
 :nmap <C-e> <Nop> 
 :nmap <C-e> :VTreeExplore
-:nmap [ :vertical resize 
+:nmap [ :
 :nmap ] :res
-:nmap [bash <Space>#!/bin/bashjj<CR> 
 :nmap ]r :g/^$/d
 :map ß :SyntasticToggleMode<CR>
 
