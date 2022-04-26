@@ -13,3 +13,10 @@ git config --global core.editor /usr/bin/vim
 
 sh ~/dotfiles/install_script
 vim +PluginInstall +qall
+
+
+# how to set up camel case motion in vscode
+# https://stackoverflow.com/a/68051768
+
+# how to set up iterm move-by-word
+# preferences > profiles > keys > key mappings > hex code 0x17 alt+del, hex code 0x15 cmd+del, escape sequence f alt+right, escape sequence b alt-left, hex code 0x01 cmd+left, hex code 0x05 cmd+right
